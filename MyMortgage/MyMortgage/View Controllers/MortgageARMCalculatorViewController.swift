@@ -14,7 +14,7 @@ class MortgageARMCalculatorViewController: UIViewController {
     
     lazy private var mortgageLengthData: [[String]] = {
         let loanLength: [String] = ["15 Years", "20 Years", "30 Years", "40 Years"]
-        let data: [[String]] = [["Years: "], loanLength]
+        let data: [[String]] = [["Years:"], loanLength]
         return data
     }()
     
@@ -26,7 +26,7 @@ class MortgageARMCalculatorViewController: UIViewController {
         for i in 1...10 {
             loanLength.append(String(i))
         }
-        let data: [[String]] = [["Years: "], loanLength]
+        let data: [[String]] = [["Years:"], loanLength]
         return data
     }()
     

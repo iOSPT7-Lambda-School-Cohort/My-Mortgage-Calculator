@@ -39,7 +39,7 @@ class MortgageARMResultsViewController: UIViewController {
         pieChartUpdate()
         // Do any additional setup after loading the view.
         saveButton.layer.cornerRadius = 12
-        saveButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        saveButton.backgroundColor = .systemTeal
     }
     
     func pieChartUpdate() {
