@@ -52,7 +52,7 @@ class MortgageQuoteTableViewController: UITableViewController {
         let mortgage = mortgageLoanArray[indexPath.row].1
         let mortgageType = mortgage.mortgageType
         if mortgageType == "Mortgage" {
-            self.performSegue(withIdentifier: "LoadSavedLoanSegue", sender: nil)
+            self.performSegue(withIdentifier: "SelectSavedLoanSegue", sender: nil)
         } else if mortgageType == "ARM" {
             self.performSegue(withIdentifier: "LoadARMSegue", sender: nil)
         }

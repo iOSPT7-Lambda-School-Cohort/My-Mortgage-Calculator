@@ -20,7 +20,7 @@ class MortgageARMResultsViewController: UIViewController {
         return formatter
     }
     
-    @IBOutlet weak var initialRatePieChart: UIView!
+    @IBOutlet weak var initialRatePieChart: PieChartView!
     @IBOutlet weak var maxRatePieChart: PieChartView!
     @IBOutlet weak var savedNameTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
@@ -53,7 +53,7 @@ class MortgageARMResultsViewController: UIViewController {
         let totalInitialPayment = principleValue + interestValue + insuranceValue + propertyTaxValue + hoaValue
         let totalPaymentAtMax = principleValue + interestValueAtMax + insuranceValue + propertyTaxValue + hoaValue
         
-    
+        
         // Set up pie chart data set
         let principle = PieChartDataEntry(value: principleValue, label: "Principle")
         let interest = PieChartDataEntry(value: interestValue, label: "Interest")
@@ -67,16 +67,35 @@ class MortgageARMResultsViewController: UIViewController {
         let dataSetAtMax = PieChartDataSet(entries: [principle, interestAtMax, insurance, propertyTax, hoa], label: "Payment BreakDown At Max Interest Rate")
         let data = PieChartData(dataSet: dataSet)
         let dataAtMax = PieChartData(dataSet: dataSetAtMax)
-    
+        
         // Set up text format
         dataSet.valueColors = [UIColor.black]
         let formatter = DefaultValueFormatter(formatter: currencyFormatter)
         dataSet.valueFormatter = .some(formatter)
         dataSetAtMax.valueColors = [UIColor.black]
         dataSetAtMax.valueFormatter = .some(formatter)
-    
+        
         // Display pie chart
+        maxRatePieChart.data = data
+        maxRatePieChart.chartDescription?.text = "Adjustable Mortgage Total Payment"
+        dataSet.colors = ChartColorTemplates.material()
+        
+        guard let centerTextValue = currencyFormatter.string(for: totalPaymentAtMax) else { return }
+        maxRatePieChart.centerText = "Total Payment: " + centerTextValue
+        
+        //This must stay at end of function
+        maxRatePieChart.notifyDataSetChanged()
+        
+        initialRatePieChart.data = dataAtMax
+        initialRatePieChart.chartDescription?.text = "Adjustable Mortgage Initial Payment"
+        dataSet.colors = ChartColorTemplates.material()
+        
+        guard let initialTextValue = currencyFormatter.string(for: totalInitialPayment) else { return }
+        initialRatePieChart.centerText = "Total Payment: " + initialTextValue
+        
+        //This must stay at end of function
+        initialRatePieChart.notifyDataSetChanged()
         
     }
-
+    
 }

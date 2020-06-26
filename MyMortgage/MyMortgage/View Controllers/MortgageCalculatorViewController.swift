@@ -34,7 +34,7 @@ class MortgageCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAccessoryView()
+        // addAccessoryView()
         
         mortgageLengthPickerView.delegate = self
         mortgageLengthPickerView.dataSource = self
@@ -139,7 +139,7 @@ extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerView
     }
     
 }
-
+/*
 extension MortgageCalculatorViewController {
     func addAccessoryView() -> Void {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
@@ -176,3 +176,4 @@ extension MortgageCalculatorViewController {
     }
     
 }
+*/

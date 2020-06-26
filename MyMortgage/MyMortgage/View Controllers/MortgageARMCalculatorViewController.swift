@@ -14,7 +14,7 @@ class MortgageARMCalculatorViewController: UIViewController {
     
     lazy private var mortgageLengthData: [[String]] = {
         let loanLength: [String] = ["15 Years", "20 Years", "30 Years", "40 Years"]
-        let data: [[String]] = [["Years:"], loanLength]
+        let data: [[String]] = [[""], loanLength]
         return data
     }()
     
@@ -26,7 +26,7 @@ class MortgageARMCalculatorViewController: UIViewController {
         for i in 1...10 {
             loanLength.append(String(i))
         }
-        let data: [[String]] = [["Years:"], loanLength]
+        let data: [[String]] = [["Year"], loanLength]
         return data
     }()
     
@@ -45,7 +45,7 @@ class MortgageARMCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAccessoryView()
+       // addAccessoryView()
         
         initialLengthPickerView.delegate = self
         initialLengthPickerView.dataSource = self
@@ -162,7 +162,7 @@ class MortgageARMCalculatorViewController: UIViewController {
             if pickerView.tag == 1 {
                 return mortgageInitialLengthData[component][row]
             } else {
-                return mortgageLengthData[component][row]
+               return mortgageLengthData[component][row]
             }
         }
         
@@ -187,7 +187,7 @@ class MortgageARMCalculatorViewController: UIViewController {
         
     }
 
-
+/*
     extension MortgageARMCalculatorViewController {
         func addAccessoryView() -> Void {
             let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
@@ -234,3 +234,4 @@ class MortgageARMCalculatorViewController: UIViewController {
 
     }
 
+*/
