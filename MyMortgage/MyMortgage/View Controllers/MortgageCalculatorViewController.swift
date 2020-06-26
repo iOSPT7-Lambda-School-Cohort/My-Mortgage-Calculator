@@ -14,7 +14,7 @@ class MortgageCalculatorViewController: UIViewController {
     
     lazy private var mortgageLengthData: [[String]] = {
         let loanLength: [String] = ["15 Years", "20 Years", "30 Years", "40 Years"]
-        let data: [[String]] = [["Length"], loanLength]
+        let data: [[String]] = [loanLength]
         return data
     }()
     
@@ -45,7 +45,7 @@ class MortgageCalculatorViewController: UIViewController {
         calculateMortgageButton.layer.cornerRadius = 12
         calculateMortgageButton.backgroundColor = .systemTeal
         
-        mortgageLengthPickerView.selectRow(0, inComponent: 1, animated: true)
+        mortgageLengthPickerView.selectRow(0, inComponent: 0, animated: true)
     }
     
     @IBAction func calculateButton(_ sender: Any) {
@@ -114,7 +114,8 @@ class MortgageCalculatorViewController: UIViewController {
 
 extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return mortgageLengthData.count
+      return 1
+        // return mortgageLengthData.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -127,11 +128,12 @@ extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let mortgageLengthString = mortgageLengthData[component][row]
-        if  mortgageLengthString == mortgageLengthData[1][0] {
+       //same note glad had [1][0] [1][1] [1][2]
+        if  mortgageLengthString == mortgageLengthData[0][0] {
             mortgageLength = .fifteen
-        } else if mortgageLengthString == mortgageLengthData[1][1] {
+        } else if mortgageLengthString == mortgageLengthData[0][1] {
             mortgageLength = .twenty
-        } else if mortgageLengthString == mortgageLengthData[1][2] {
+        } else if mortgageLengthString == mortgageLengthData[0][2] {
             mortgageLength = .thirty
         } else {
             mortgageLength = .forty
