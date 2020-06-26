@@ -14,7 +14,7 @@ class MortgageARMCalculatorViewController: UIViewController {
     
     lazy private var mortgageLengthData: [[String]] = {
         let loanLength: [String] = ["15 Years", "20 Years", "30 Years", "40 Years"]
-        let data: [[String]] = [[""], loanLength]
+        let data: [[String]] = [loanLength]
         return data
     }()
     
@@ -58,8 +58,11 @@ class MortgageARMCalculatorViewController: UIViewController {
         calculateARMButton.layer.cornerRadius = 12
         calculateARMButton.backgroundColor = .systemTeal
         
-        initialLengthPickerView.selectRow(4, inComponent: 1, animated: true)
-        totalLengthPickerView.selectRow(0, inComponent: 1, animated: true)
+        initialLengthPickerView.selectRow(4, inComponent: 0, animated: true)
+               totalLengthPickerView.selectRow(0, inComponent: 0, animated: true)
+        
+       // initialLengthPickerView.selectRow(4, inComponent: 1, animated: true)
+      //  totalLengthPickerView.selectRow(0, inComponent: 1, animated: true)
 
         // Do any additional setup after loading the view.
     }
@@ -143,11 +146,12 @@ class MortgageARMCalculatorViewController: UIViewController {
 
     extension MortgageARMCalculatorViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            if pickerView.tag == 1 {
+            return 1
+           /* if pickerView.tag == 1 {
                 return mortgageInitialLengthData.count
             } else {
                 return mortgageLengthData.count
-            }
+            }*/
         }
         
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -173,11 +177,12 @@ class MortgageARMCalculatorViewController: UIViewController {
                 self.initialLength = initialLength
             } else {
                 let mortgageLengthString = mortgageLengthData[component][row]
-                if  mortgageLengthString == mortgageLengthData[1][0] {
+                //quick note. glad has [1][0] [1][1] [1][2]
+                if  mortgageLengthString == mortgageLengthData[0][0] {
                     mortgageLength = .fifteen
-                } else if mortgageLengthString == mortgageLengthData[1][1] {
+                } else if mortgageLengthString == mortgageLengthData[0][1] {
                     mortgageLength = .twenty
-                } else if mortgageLengthString == mortgageLengthData[1][2] {
+                } else if mortgageLengthString == mortgageLengthData[0][2] {
                     mortgageLength = .thirty
                 } else {
                     mortgageLength = .forty
