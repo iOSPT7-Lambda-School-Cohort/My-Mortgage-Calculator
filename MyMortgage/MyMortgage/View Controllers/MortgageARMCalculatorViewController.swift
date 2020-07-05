@@ -22,11 +22,11 @@ class MortgageARMCalculatorViewController: UIViewController {
     var initialLength: Int? = 5
     
     private var mortgageInitialLengthData: [[String]] = {
-        var loanLength: [String] = []
-        for i in 1...10 {
-            loanLength.append(String(i))
-        }
-        let data: [[String]] = [["Year"], loanLength]
+        let loanLength: [String] = ["1 Year", "2 Years", "3 Years", "4 Years", "5 Years", "6 Years", "7 Years", "8 Years", "9 Years", "10 Years"]
+       // for i in 1...10 {
+         //   loanLength.append(String(i))
+       // }
+        let data: [[String]] = [loanLength]
         return data
     }()
     
@@ -58,7 +58,7 @@ class MortgageARMCalculatorViewController: UIViewController {
         calculateARMButton.layer.cornerRadius = 12
         calculateARMButton.backgroundColor = .systemTeal
         
-        initialLengthPickerView.selectRow(4, inComponent: 0, animated: true)
+        initialLengthPickerView.selectRow(0, inComponent: 0, animated: true)
                totalLengthPickerView.selectRow(0, inComponent: 0, animated: true)
         
        // initialLengthPickerView.selectRow(4, inComponent: 1, animated: true)

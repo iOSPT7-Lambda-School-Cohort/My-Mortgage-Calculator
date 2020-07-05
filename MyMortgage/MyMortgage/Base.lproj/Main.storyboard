@@ -85,17 +85,20 @@
                                 <state key="normal" title="Loan Quote"/>
                             </button>
                             <connections>
-                                <segue destination="m2j-c3-dSZ" kind="show" identifier="SelectSavedLoanSegue" id="b9l-K2-2Hs"/>
+                                <action selector="saveQuoteLabel:" destination="ZXb-Mn-UIG" id="TA2-z4-Gxh"/>
+                                <segue destination="m2j-c3-dSZ" kind="presentation" identifier="SelectSavedLoanSegue" id="b9l-K2-2Hs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="armButton" destination="fpX-Mc-sZZ" id="fLl-Up-A7U"/>
+                        <outlet property="loanQuoteButton" destination="JlG-Qj-RYt" id="Nk5-2I-cq5"/>
                         <outlet property="titleImage" destination="TbZ-dI-u81" id="FrC-Oy-Qlt"/>
                         <outlet property="traditionalmortgageButton" destination="PdG-hq-V3L" id="IiU-Ux-x5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4c-fZ-P3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ZXb-Mn-UIG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6416" y="-92"/>
         </scene>
@@ -658,30 +661,30 @@
             <objects>
                 <viewController id="lc1-Q3-6ak" customClass="MortgageARMResultsViewController" customModule="MyMortgage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WfT-Fl-QCX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc5-Pb-zWp">
-                                <rect key="frame" x="20" y="121" width="200" height="30"/>
+                                <rect key="frame" x="20" y="-19" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9V-zO-iVI">
-                                <rect key="frame" x="20" y="710" width="374" height="34"/>
+                                <rect key="frame" x="20" y="656" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgX-wa-fXh" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="159" width="374" height="233"/>
+                                <rect key="frame" x="20" y="19" width="374" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9P-ki-qAa" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="432" width="374" height="233"/>
+                                <rect key="frame" x="20" y="432" width="374" height="93"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQF-cE-u9G">
-                                <rect key="frame" x="20" y="768" width="374" height="30"/>
+                                <rect key="frame" x="20" y="714" width="374" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -691,7 +694,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a name to save your quote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-Gb-29l">
-                                <rect key="frame" x="69" y="673" width="276" height="18"/>
+                                <rect key="frame" x="69" y="533" width="276" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="276" id="8Rb-4s-as9"/>
                                 </constraints>
@@ -750,7 +753,7 @@
             <objects>
                 <tableViewController id="m2j-c3-dSZ" customClass="MortgageQuoteTableViewController" customModule="MyMortgage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lez-se-Ibf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>

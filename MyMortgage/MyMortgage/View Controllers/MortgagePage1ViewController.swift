@@ -19,11 +19,13 @@ class MortgagePage1ViewController: UIViewController {
     
     @IBOutlet weak var traditionalmortgageButton: UIButton!
     
+    @IBOutlet weak var loanQuoteButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mortgageLoanController.loadFromPersistentStore()
+       // MortgageQuoteTableViewController.loadFromPersistentStore()
 
         traditionalmortgageButton.layer.cornerRadius = 12
         traditionalmortgageButton.backgroundColor = .systemTeal
@@ -48,6 +50,9 @@ class MortgagePage1ViewController: UIViewController {
             mortgageLoanController.createMortgageLoan(mortgageType: mortgageType)
             let armP2VC = segue.destination as! MortgageARMCalculatorViewController
             armP2VC.mortgageLoanController = mortgageLoanController
+        } else if segue.identifier == "LoanQuote" {
+            let quote = segue.destination as! MortgageQuoteTableViewController
+            //quote.mortgageLoanController = mortgageLoanController
         }
     }
     
